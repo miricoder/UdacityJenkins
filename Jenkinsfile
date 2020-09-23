@@ -17,7 +17,7 @@ pipeline {
          }
          stage('Security Scan') {
               steps {  
-               aquaMicroscanner imageName: 'alpine:latest', notCompliesCmd: 'exit 1',outputFormat: 'json', onDisallowed: 'fail'
+               sh "aquaMicroscanner imageName: 'alpine:latest', notCompliesCmd: 'exit 1',outputFormat: 'json', onDisallowed: 'fail'"
               }
          }         
          stage('Upload to AWS') {
